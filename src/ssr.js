@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import { ServerStyleSheet } from 'styled-components';
-import App from './App';
+import App from '~/App';
 
 export default async function ssr() {
   const sheet = new ServerStyleSheet();
 
   const html = ReactDOMServer.renderToString(sheet.collectStyles(
-    <App content={content} />
+    <App />
   ));
 
   const helmet = Helmet.renderStatic();

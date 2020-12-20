@@ -1,6 +1,8 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
+import Intro from '~/sections/Intro';
+import theme from '~/theme';
 
 const GlobalReset = createGlobalStyle`
   * {
@@ -62,12 +64,13 @@ export default function App(props) {
     <React.Fragment>
       <Helmet>
         <title>This Is Why 2020 Broke Me - By Joe Kent</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
       </Helmet>
       <GlobalReset />
-      <h1>
-        test
-        test
-      </h1>
+      <ThemeProvider theme={theme}>
+        <Intro />
+      </ThemeProvider>
     </React.Fragment>
   );
 }

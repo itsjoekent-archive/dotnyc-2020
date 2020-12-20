@@ -1,6 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import IntroBlocks from '~/sections/Intro/blocks';
 
-export default function Intro(content) {
-  
+export default function Intro() {
+  return (
+    <IntroBlocks.Hero>
+
+    </IntroBlocks.Hero>
+  );
 }
