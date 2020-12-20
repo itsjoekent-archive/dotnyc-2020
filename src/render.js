@@ -3,6 +3,8 @@ const path = require('path');
 const minify = require('html-minifier').minify;
 
 async function loadSSRModule() {
+  delete require.cache[require.resolve('../www/dist/ssr-compiled.js')];
+
   const loaderPromise = new Promise((resolve) => {
     let attempts = 0;
 
@@ -14,12 +16,12 @@ async function loadSSRModule() {
       }
 
       try {
-        const modulePath = path.join(process.cwd(), 'src/ssr-compiled.js');
+        const modulePath = path.join(process.cwd(), 'www/dist/ssr-compiled.js');
         const mode = require('fs').constants.R_OK;
 
         await fs.access(modulePath, mode);
 
-        const module = require('./ssr-compiled.js');
+        const module = require('../www/dist/ssr-compiled.js');
         resolve(module.default);
       } catch (error) {
         attempts += 1;
@@ -88,8 +90,7 @@ async function writeFile(html) {
 
     console.log('renderer watching for changes...');
 
-    require('fs').watch(path.join(process.cwd(), 'src/content.md'), handler);
-    require('fs').watch(path.join(process.cwd(), 'src/ssr-compiled.js'), handler);
+    require('fs').watch(path.join(process.cwd(), 'www/dist/ssr-compiled.js'), handler);
   } else {
     try {
       const html = await render();

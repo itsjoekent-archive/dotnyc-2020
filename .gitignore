@@ -107,4 +107,4 @@ dist
 www
 
 # Babel compilation
-ssr-compiled
+src/ssr-compiled.js

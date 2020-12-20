@@ -9,6 +9,10 @@ const sharedConfig = {
         use: 'raw-loader',
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: 'file-loader',
+      },
+      {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -33,7 +37,7 @@ module.exports = [
     target: 'node',
     output: {
       filename: 'ssr-compiled.js',
-      path: path.join(process.cwd(), 'src'),
+      path: path.join(process.cwd(), 'www/dist'),
       publicPath: '/dist/',
       libraryTarget: 'commonjs2',
     },
