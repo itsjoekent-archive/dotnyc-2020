@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import { ServerStyleSheet } from 'styled-components';
 import App from './App';
-import content from './content.md';
 
 export default async function ssr() {
   const sheet = new ServerStyleSheet();

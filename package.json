@@ -1,6 +1,7 @@
 {
   "private": true,
   "dependencies": {
+    "markdown-to-jsx": "^7.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

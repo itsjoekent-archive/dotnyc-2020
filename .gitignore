@@ -105,3 +105,6 @@ dist
 
 # static build
 www
+
+# Babel compilation
+ssr-compiled
