@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const path = require('path');
+const minify = require('html-minifier').minify;
 
 async function loadSSRModule() {
   const loaderPromise = new Promise((resolve) => {
@@ -34,18 +35,25 @@ async function render() {
   const ssr = await loadSSRModule();
   const { html, headElements, styleElements } = await ssr();
 
-  return `
+  const template = minify(`
     <html>
       <head>
-        ${headElements}
-        ${styleElements}
+        {{HEAD_ELEMENTS}}
+        {{STYLE_ELEMENTS}}
       </head>
       <body>
-        <div id="react">${html}</div>
+        <div id="react">{{HTML}}</div>
         <script src="/dist/main.js"></script>
       </body>
     </html>
-  `;
+  `, {
+    collapseWhitespace: true,
+  });
+
+  return template
+    .replace('{{HEAD_ELEMENTS}}', headElements)
+    .replace('{{STYLE_ELEMENTS}}', styleElements)
+    .replace('{{HTML}}', html);
 }
 
 async function writeFile(html) {

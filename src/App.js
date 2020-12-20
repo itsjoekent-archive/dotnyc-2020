@@ -64,6 +64,10 @@ export default function App(props) {
         <title>This Is Why 2020 Broke Me - By Joe Kent</title>
       </Helmet>
       <GlobalReset />
+      <h1>
+        test
+        test
+      </h1>
     </React.Fragment>
   );
 }
