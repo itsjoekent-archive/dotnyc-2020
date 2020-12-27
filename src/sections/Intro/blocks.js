@@ -120,7 +120,7 @@ export const WarningContainer = styled.div`
 
 export const WarningLayout = styled.div`
   width: 100%;
-  max-width: 700px;
+  max-width: 620px;
   margin-left: auto;
   margin-right: auto;
   padding: 48px 24px;

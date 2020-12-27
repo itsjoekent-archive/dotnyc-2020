@@ -26,7 +26,7 @@ export default function Intro(props) {
       <IntroBlocks.WarningContainer>
         <IntroBlocks.WarningLayout>
           <IntroBlocks.WarningParagraph>
-            Fair warning, I’m leaving all of my thoughts on the field. It’s mildly chaotic. You won’t be more joyful by the end.
+            Fair warning, I’m leaving all of my thoughts on the field. It’s mildly chaotic. You won’t be more joyful by the end. I’m mostly doing this as a visual archive of how awful this year was.
           </IntroBlocks.WarningParagraph>
           <IntroBlocks.WarningParagraph>
             <strong>

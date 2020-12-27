@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Intro from '~/sections/Intro';
+import Red from '~/sections/Red';
 import theme from '~/theme';
 
 const GlobalReset = createGlobalStyle`
@@ -59,6 +60,11 @@ const GlobalReset = createGlobalStyle`
   }
 `;
 
+const Main = styled.main`
+  position: relative;
+  overflow: hidden;
+`;
+
 export default function App(props) {
   const [textOnly, setTextOnly] = React.useState(false);
 
@@ -72,9 +78,10 @@ export default function App(props) {
       </Helmet>
       <GlobalReset />
       <ThemeProvider theme={theme}>
-        <main>
+        <Main>
           <Intro setTextOnly={setTextOnly} />
-        </main>
+          <Red />
+        </Main>
       </ThemeProvider>
     </React.Fragment>
   );

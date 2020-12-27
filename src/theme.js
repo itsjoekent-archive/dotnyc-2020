@@ -6,6 +6,9 @@ const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
+    darkRed: '#B6180E',
+    red: '#E63946',
+    lightRed: '#F57584',
   },
   standards: {
 
