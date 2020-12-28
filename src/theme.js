@@ -6,6 +6,7 @@ const theme = {
   colors: {
     white: '#FFFFFF',
     black: '#000000',
+    silver: '#f1f1f1',
     darkRed: '#B6180E',
     red: '#E63946',
     lightRed: '#F57584',

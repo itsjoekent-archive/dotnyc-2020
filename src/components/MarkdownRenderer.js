@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Markdown from 'markdown-to-jsx';
 import * as Typography from '~/components/Typography';
+import MagicAnchor from './MagicAnchor';
 
 export const MarkdownContainer = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ export default function MarkdownRenderer(props) {
         component: Typography.Paragraph,
       },
       a: {
-        component: Typography.Link,
+        component: MagicAnchor,
       },
       ...overrides,
     },

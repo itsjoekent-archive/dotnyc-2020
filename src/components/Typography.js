@@ -32,7 +32,7 @@ export const SectionTitle = styled.h2`
 export const Paragraph = styled.p`
   display: block;
   position: relative;
-  
+
   font-family: ${({ theme }) => theme.fonts.primary};
   font-weight: 400;
   font-size: 20px;
@@ -53,6 +53,7 @@ export const Paragraph = styled.p`
 `;
 
 export const Link = styled.a`
+  display: inline;
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit;
@@ -60,4 +61,5 @@ export const Link = styled.a`
   color: inherit;
   text-decoration: underline;
   cursor: pointer;
+  position: relative;
 `;

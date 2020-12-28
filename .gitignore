@@ -104,7 +104,7 @@ dist
 .tern-port
 
 # static build
-www
+www/*
+!www/previews/
 
-# Babel compilation
-src/ssr-compiled.js
+.DS_Store
