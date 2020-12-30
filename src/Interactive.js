@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Intro from '~/sections/Intro';
 import Red from '~/sections/Red';
+import { MagicAnchorContext } from '~/components/MagicAnchor';
 
 const Main = styled.main`
   position: relative;
@@ -11,11 +12,15 @@ const Main = styled.main`
 export default function Interactive(props) {
   const { setTextOnly } = props;
 
+  const [activeMagicLink, setActiveMagicLink] = React.useState(null);
+
   return (
     <Main>
       <div id="magic-anchor-preview" />
-      <Intro setTextOnly={setTextOnly} />
-      <Red />
+      <MagicAnchorContext.Provider value={[activeMagicLink, setActiveMagicLink]}>
+        <Intro setTextOnly={setTextOnly} />
+        <Red />
+      </MagicAnchorContext.Provider>
     </Main>
   );
 }
