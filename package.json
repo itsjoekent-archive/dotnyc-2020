@@ -41,7 +41,10 @@
     "start:serve": "serve www",
     "start:ssr": "NODE_ENV=development node src/render.js",
     "start:webpack": "NODE_ENV=development webpack --watch",
-    "build:crawl": "node src/crawler.js"
+    "crawl": "node src/crawler.js",
+    "build:webpack": "NODE_ENV=production webpack",
+    "build:ssr": "NODE_ENV=production node src/render.js",
+    "build": "npm run build:webpack && npm run build:ssr"
   },
   "browserslist": "> 0.25%, not dead",
   "config": {

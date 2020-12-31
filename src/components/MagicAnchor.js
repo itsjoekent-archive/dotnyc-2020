@@ -151,7 +151,10 @@ function MagicAnchorPreview(props) {
 
   return ReactDOM.createPortal((
     <PreviewContainer>
-      <PreviewImage src={`/previews/${id}-small.png`} alt="" />
+      <PreviewImage
+        src={`${process.env.ASSET_PATH}previews/${id}-small.png`}
+        alt={`Screenshot of the article titled ${title}`}
+      />
       <MetaContainer>
         {title && (<MetaTitle>{truncateMetaString(title)}</MetaTitle>)}
         {description && (<MetaDescription>{truncateMetaString(description)}</MetaDescription>)}
@@ -192,7 +195,7 @@ export default function MagicAnchor(props) {
 
   React.useEffect(() => {
     if (isExpanded && !meta) {
-      fetch(`/previews/${id}.json`)
+      fetch(`${process.env.ASSET_PATH}previews/${id}.json`)
         .then((response) => response.json())
         .then((data) => setMeta(data));
     }

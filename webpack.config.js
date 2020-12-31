@@ -1,5 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
+
+const publicPath = process.env.NODE_ENV === 'production' ? '/2020/dist/' : '/dist/';
+const assetPath = process.env.NODE_ENV === 'production' ? '/2020/' : '/';
 
 const sharedConfig = {
   module: {
@@ -21,6 +25,11 @@ const sharedConfig = {
       },
     ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.ASSET_PATH': JSON.stringify(assetPath),
+    }),
+  ],
 };
 
 module.exports = [
@@ -29,7 +38,7 @@ module.exports = [
     output: {
       filename: '[name].js',
       path: path.join(process.cwd(), 'www/dist'),
-      publicPath: '/dist/',
+      publicPath,
     },
   }, sharedConfig),
   merge({
@@ -38,7 +47,7 @@ module.exports = [
     output: {
       filename: 'ssr-compiled.js',
       path: path.join(process.cwd(), 'www/dist'),
-      publicPath: '/dist/',
+      publicPath,
       libraryTarget: 'commonjs2',
     },
   }, sharedConfig),

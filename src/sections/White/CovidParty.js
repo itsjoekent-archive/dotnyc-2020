@@ -66,7 +66,8 @@ export default function CovidParty() {
       <Bubble>
         <VideoContainer>
           <Video autoPlay muted loop>
-            <source src="/video/covid-party.mp4" type="video/mp4" />
+            <source src={`${process.env.ASSET_PATH}video/covid-party.webm`} type="video/webm" />
+            <source src={`${process.env.ASSET_PATH}video/covid-party.mp4`} type="video/mp4" />
           </Video>
         </VideoContainer>
         <ConfettiContainer>

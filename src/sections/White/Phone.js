@@ -75,7 +75,7 @@ export default function Phone(props) {
   } = props;
 
   const videoRef = React.useRef(null);
-  const [videoSrc, setVideoSrc] = React.useState('/video/karen-basic');
+  const [videoSrc, setVideoSrc] = React.useState('video/karen-basic');
 
   const isInView = karenMainInView
     || karenRacistInView
@@ -85,15 +85,15 @@ export default function Phone(props) {
     let targetSrc = videoSrc;
 
     if (karenMainInView) {
-      targetSrc = '/video/karen-basic';
+      targetSrc = 'video/karen-basic';
     }
 
     if (!karenLedeInView && karenRacistInView) {
-      targetSrc = '/video/karen-racist';
+      targetSrc = 'video/karen-racist';
     }
 
     if (karenAntiMaskInView) {
-      targetSrc = '/video/karen-anti-mask';
+      targetSrc = 'video/karen-anti-mask';
     }
 
     if (targetSrc !== videoSrc && videoRef.current) {
@@ -116,7 +116,8 @@ export default function Phone(props) {
     <Container isInView={isInView}>
       <PhoneLayer src={iphone} alt="Iphone playing viral videos of Karen's" />
       <VideoLayer ref={videoRef} muted autoPlay loop>
-        <source src={`${videoSrc}.mp4`} type="video/mp4" />
+        <source src={`${process.env.ASSET_PATH}${videoSrc}.webm`} type="video/webm" />
+        <source src={`${process.env.ASSET_PATH}${videoSrc}.mp4`} type="video/mp4" />
       </VideoLayer>
     </Container>
   );

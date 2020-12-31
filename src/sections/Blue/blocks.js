@@ -86,7 +86,7 @@ export const PostProtestSection = styled.section`
   }
 
   ${Typography.Link} {
-    text-decoration-color: ${({ theme }) => theme.colors.blue};
+    text-decoration-color: ${({ theme }) => theme.colors.silver};
 
     &:hover {
       text-decoration-color: ${({ theme }) => theme.colors.white};

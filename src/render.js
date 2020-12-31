@@ -45,7 +45,7 @@ async function render() {
       </head>
       <body>
         <div id="react">{{HTML}}</div>
-        <script src="/dist/main.js"></script>
+        <script src="${process.env.NODE_ENV === 'development' ? '/dist/' : '/2020/dist/'}main.js"></script>
       </body>
     </html>
   `, {

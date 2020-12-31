@@ -8,19 +8,19 @@ import * as Typography from '~/components/Typography';
 const steps = [
   [
     `It did not matter how many videos of [brazen police violence went viral around the internet](https://twitter.com/JordanUhl/status/1266917228752056320).`,
-    '/video/police-1',
+    'video/police-1',
   ],
   [
     `It did not matter that The New York Times [compiled dozens of videos of the NYPD over a two week period](https://www.nytimes.com/interactive/2020/07/14/nyregion/nypd-george-floyd-protests.html) showing the department acting more like a Mafia than “*New York’s Finest*”.`,
-    '/video/police-2',
+    'video/police-2',
   ],
   [
     `It did not matter that the Philadelphia SWAT team engaged in essentially [chemical warfare against civilians](https://www.nytimes.com/video/us/100000007174941/philadelphia-tear-gas-george-floyd-protests.html),`,
-    '/video/police-3',
+    'video/police-3',
   ],
   [
     `or that the Buffalo police [shoved an innocent old man on the ground who did nothing wrong and cracked his head open](https://twitter.com/DavidBegnaud/status/1268716877355810818).`,
-    '/video/police-4',
+    'video/police-4',
   ],
   [
     `It did not matter that the US Marshals flat out [assassinated an “Antifa activist”](https://www.nytimes.com/2020/10/13/us/michael-reinoehl-antifa-portland-shooting.html),`,
@@ -32,7 +32,7 @@ const steps = [
   ],
   [
     `Oh and how did the police respond to the increased media interest? [They shot at the press](https://freedom.press/news/press-freedom-violations-george-floyd-protests-numbers-shocking-and-unprecedented-level-attacks-journalists/).`,
-    '/video/police-7',
+    'video/police-7',
   ],
 ];
 
@@ -202,7 +202,8 @@ export default function Protest() {
       <VideoOverlay />
       {!!steps[stepIndex][1] && (
         <Video ref={videoRef} muted>
-          <source src={`${steps[stepIndex][1]}.mp4`} type="video/mp4" />
+          <source src={`${process.env.ASSET_PATH}${steps[stepIndex][1]}.webm`} type="video/webm" />
+          <source src={`${process.env.ASSET_PATH}${steps[stepIndex][1]}.mp4`} type="video/mp4" />
         </Video>
       )}
     </Container>
