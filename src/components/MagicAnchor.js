@@ -78,6 +78,8 @@ const PreviewContainer = styled.div`
 const PreviewImage = styled.img`
   display: block;
   width: 33.33%;
+  height: auto;
+  max-height: 72px;
   object-fit: cover;
   object-position: top left;
   cursor: default;
