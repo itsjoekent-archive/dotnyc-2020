@@ -4,6 +4,7 @@ import Red from '~/sections/Red';
 import White from '~/sections/White';
 import Blue from '~/sections/Blue';
 import Conclusion from '~/sections/Conclusion';
+import StickyNav from '~/components/StickyNav';
 import { MagicAnchorContext } from '~/components/MagicAnchor';
 
 const Main = styled.main`
@@ -12,6 +13,8 @@ const Main = styled.main`
 `;
 
 export default function Interactive(props) {
+  const { isHeroInView } = props;
+
   const [activeMagicLink, setActiveMagicLink] = React.useState(null);
 
   React.useEffect(() => {
@@ -39,11 +42,18 @@ export default function Interactive(props) {
 
   return (
     <Main>
+      {!isHeroInView && <StickyNav />}
       <div id="magic-anchor-preview" />
       <MagicAnchorContext.Provider value={[activeMagicLink, setActiveMagicLink]}>
-        <Red />
-        <White />
-        <Blue />
+        <div data-section="red">
+          <Red />
+        </div>
+        <div data-section="white">
+          <White />
+        </div>
+        <div data-section="blue">
+          <Blue />
+        </div>
         <Conclusion />
       </MagicAnchorContext.Provider>
     </Main>

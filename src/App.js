@@ -63,6 +63,7 @@ const GlobalReset = createGlobalStyle`
 
 export default function App(props) {
   const [isTextOnly, setIsTextOnly] = React.useState(false);
+  const [isHeroInView, setIsHeroInView] = React.useState(true);
 
   return (
     <React.Fragment>
@@ -74,8 +75,8 @@ export default function App(props) {
       </Helmet>
       <GlobalReset />
       <ThemeProvider theme={theme}>
-        <Intro isTextOnly={isTextOnly} setIsTextOnly={setIsTextOnly} />
-        {isTextOnly ? <TextOnly /> : <Interactive />}
+        <Intro isTextOnly={isTextOnly} setIsTextOnly={setIsTextOnly} setIsHeroInView={setIsHeroInView} />
+        {isTextOnly ? <TextOnly /> : <Interactive isHeroInView={isHeroInView} />}
       </ThemeProvider>
     </React.Fragment>
   );

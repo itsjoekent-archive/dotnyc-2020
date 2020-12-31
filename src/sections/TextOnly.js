@@ -46,7 +46,7 @@ const Container = styled.div`
 
   ${Typography.SectionTitle} {
     text-align: left;
-    color: ${({ theme }) => theme.colors.silver};
+    color: ${({ theme }) => theme.colors.black};
   }
 
   ${Typography.Paragraph} {

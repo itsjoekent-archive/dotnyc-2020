@@ -1,13 +1,20 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import * as IntroBlocks from '~/sections/Intro/blocks';
 import thisIsFine from '~/assets/decorators/this-is-fine.png';
 
 export default function Intro(props) {
-  const { isTextOnly, setIsTextOnly } = props;
+  const { isTextOnly, setIsTextOnly, setIsHeroInView } = props;
+
+  const [heroRef, isHeroInView] = useInView({ threshold: 0 });
+
+  React.useEffect(() => {
+    setIsHeroInView(isHeroInView);
+  }, [isHeroInView]);
 
   return (
     <React.Fragment>
-      <IntroBlocks.Hero>
+      <IntroBlocks.Hero ref={heroRef}>
         <IntroBlocks.HeroTitleLayout>
           <IntroBlocks.Title>
             <IntroBlocks.WideTitleLine>This is why</IntroBlocks.WideTitleLine>

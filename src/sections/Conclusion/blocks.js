@@ -7,6 +7,7 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.colors.black};
   position: relative;
   padding-bottom: 72px;
