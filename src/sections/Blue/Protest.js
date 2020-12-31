@@ -159,7 +159,6 @@ export default function Protest() {
 
   React.useEffect(() => {
     if (isPromptInView && !videoRef.current.currentTime) {
-      console.log('hi')
       videoRef.current.play();
     }
   }, [

@@ -3,7 +3,7 @@ import * as IntroBlocks from '~/sections/Intro/blocks';
 import thisIsFine from '~/assets/decorators/this-is-fine.png';
 
 export default function Intro(props) {
-  const { setTextOnly } = props;
+  const { isTextOnly, setIsTextOnly } = props;
 
   return (
     <React.Fragment>
@@ -17,8 +17,8 @@ export default function Intro(props) {
         </IntroBlocks.HeroTitleLayout>
         <IntroBlocks.BylineRow>
           <IntroBlocks.Byline>By Joe Kent</IntroBlocks.Byline>
-          <IntroBlocks.TextOnlyLink onClick={() => setTextOnly(true)}>
-            Read the text only version
+          <IntroBlocks.TextOnlyLink onClick={() => setIsTextOnly(!isTextOnly)}>
+            {isTextOnly ? 'Read the visual version' : 'Read the text only version'}
           </IntroBlocks.TextOnlyLink>
         </IntroBlocks.BylineRow>
         <IntroBlocks.Mascot src={thisIsFine} alt="Popular comic character used to portray everything is on fire" />

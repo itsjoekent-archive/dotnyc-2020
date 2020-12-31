@@ -2,6 +2,8 @@ import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import Interactive from '~/sections/Interactive';
+import TextOnly from '~/sections/TextOnly';
+import Intro from '~/sections/Intro';
 import theme from '~/theme';
 
 const GlobalReset = createGlobalStyle`
@@ -60,7 +62,7 @@ const GlobalReset = createGlobalStyle`
 `;
 
 export default function App(props) {
-  const [textOnly, setTextOnly] = React.useState(false);
+  const [isTextOnly, setIsTextOnly] = React.useState(false);
 
   return (
     <React.Fragment>
@@ -72,7 +74,8 @@ export default function App(props) {
       </Helmet>
       <GlobalReset />
       <ThemeProvider theme={theme}>
-        <Interactive setTextOnly={setTextOnly} />
+        <Intro isTextOnly={isTextOnly} setIsTextOnly={setIsTextOnly} />
+        {isTextOnly ? <TextOnly /> : <Interactive />}
       </ThemeProvider>
     </React.Fragment>
   );
