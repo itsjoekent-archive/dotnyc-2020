@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Helmet } from 'react-helmet';
-import Interactive from '~/Interactive';
+import Interactive from '~/sections/Interactive';
 import theme from '~/theme';
 
 const GlobalReset = createGlobalStyle`

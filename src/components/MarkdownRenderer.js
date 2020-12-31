@@ -21,7 +21,12 @@ export const MarkdownContainer = styled.div`
 `;
 
 export default function MarkdownRenderer(props) {
-  const { markup = '', overrides = {}, options = {} } = props;
+  const {
+    markup = '',
+    overrides = {},
+    options = {},
+    disableMobileMagicAnchor = false,
+  } = props;
 
   const markdownOptions = {
     ...options,
@@ -33,7 +38,7 @@ export default function MarkdownRenderer(props) {
         component: Typography.Paragraph,
       },
       a: {
-        component: MagicAnchor,
+        component: (anchorProps) => <MagicAnchor disableMobileMagicAnchor={disableMobileMagicAnchor} {...anchorProps} />,
       },
       ...overrides,
     },

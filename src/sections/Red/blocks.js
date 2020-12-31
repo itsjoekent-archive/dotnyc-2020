@@ -11,6 +11,10 @@ export const Section = styled.section`
   position: relative;
   padding-bottom: 72px;
 
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding-bottom: 148px;
+  }
+
   ${Typography.SectionTitle} {
     text-align: center;
     color: ${({ theme }) => theme.colors.lightRed};

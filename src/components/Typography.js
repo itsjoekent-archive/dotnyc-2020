@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SectionTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.title};
   font-weight: 900;
-  font-size: 104px;
+  font-size: 96px;
   line-height: 1;
   letter-spacing: 8px;
   text-transform: uppercase;
@@ -12,6 +12,7 @@ export const SectionTitle = styled.h2`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     font-size: 144px;
+    margin-top: 148px;
   }
 
   span {

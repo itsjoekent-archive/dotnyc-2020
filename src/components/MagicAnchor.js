@@ -160,7 +160,12 @@ function MagicAnchorPreview(props) {
 }
 
 export default function MagicAnchor(props) {
-  const { href, children } = props;
+  const {
+    href,
+    children,
+    disableMobileMagicAnchor = false,
+  } = props;
+
   const id = md5(href);
 
   const [activeMagicLink, setActiveMagicLink] = React.useContext(MagicAnchorContext);
@@ -175,9 +180,7 @@ export default function MagicAnchor(props) {
   }
 
   function onMouseLeave() {
-    if (isExpanded) {
-      setActiveMagicLink(null);
-    }
+    setActiveMagicLink(null);
   }
 
   React.useEffect(() => {
@@ -192,7 +195,7 @@ export default function MagicAnchor(props) {
   ]);
 
   React.useEffect(() => {
-    const isScrollBased = () => window.matchMedia('(max-width: 1280px)');
+    const isScrollBased = () => !!('ontouchstart' in window || navigator.msMaxTouchPoints) && !disableMobileMagicAnchor;
     let performTimeoutId = null;
 
     function performEffect() {
@@ -220,7 +223,7 @@ export default function MagicAnchor(props) {
     }
 
     function onScroll() {
-      if (isScrollBased().matches) {
+      if (isScrollBased()) {
         if (performTimeoutId) {
           window.clearTimeout(performTimeoutId);
         }
@@ -241,6 +244,7 @@ export default function MagicAnchor(props) {
     id,
     isExpanded,
     setActiveMagicLink,
+    disableMobileMagicAnchor,
   ]);
 
   return (
@@ -248,8 +252,6 @@ export default function MagicAnchor(props) {
       <Link
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        onFocus={onMouseEnter}
-        onBlur={onMouseLeave}
         target="_blank"
         rel="noopener noreferrer"
         href={href}

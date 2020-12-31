@@ -106,5 +106,6 @@ dist
 # static build
 www/*
 !www/previews/
+!www/video/
 
 .DS_Store

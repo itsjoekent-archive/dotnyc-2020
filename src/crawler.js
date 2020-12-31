@@ -17,6 +17,11 @@ require.extensions['.md'] = function (module, filename) {
 };
 
 const red = require('./sections/Red/content.md');
+const white = require('./sections/White/content.md');
+
+async function sleep(duration = 1000) {
+  return new Promise((resolve) => setTimeout(resolve, duration));
+}
 
 (async () => {
   try {
@@ -54,7 +59,8 @@ const red = require('./sections/Red/content.md');
         });
 
         try {
-          await page.goto(link, { waitUntil: 'networkidle2' });
+          await page.goto(link, { waitUntil: 'networkidle0' });
+          // await sleep(5000);
         } catch (error) {
           if (!(error instanceof puppeteer.errors.TimeoutError)) {
             error.message += `\nlink=${link}, id=${id}`;
@@ -120,7 +126,7 @@ const red = require('./sections/Red/content.md');
       }
     }
 
-    await Promise.all([red].map((parse)));
+    await Promise.all([red, white].map((parse)));
     await browser.close();
 
     console.log('done crawling!');
