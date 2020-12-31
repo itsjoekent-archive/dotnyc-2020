@@ -10,8 +10,4 @@ $ npm start
 ```
 
 
-- sticky header
-  - slowly revealing american flag
 - github action to build on push to master
-- meta
-- favicon

@@ -107,5 +107,14 @@ dist
 www/*
 !www/previews/
 !www/video/
+!www/android-chrome-192x192.png
+!www/android-chrome-512x512.png
+!www/apple-touch-icon.png
+!www/favicon-16x16.png
+!www/favicon-32x32.png
+!www/favicon.ico
+!www/favicon.png
+!www/site.webmanifest
+!www/meta.png
 
 .DS_Store
