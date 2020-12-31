@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Intro from '~/sections/Intro';
 import Red from '~/sections/Red';
 import White from '~/sections/White';
+import Blue from '~/sections/Blue';
 import { MagicAnchorContext } from '~/components/MagicAnchor';
 
 const Main = styled.main`
@@ -14,7 +15,7 @@ export default function Interactive(props) {
   const { setTextOnly } = props;
 
   const [activeMagicLink, setActiveMagicLink] = React.useState(null);
-  
+
   return (
     <Main>
       <div id="magic-anchor-preview" />
@@ -22,6 +23,7 @@ export default function Interactive(props) {
         <Intro setTextOnly={setTextOnly} />
         <Red />
         <White />
+        <Blue />
       </MagicAnchorContext.Provider>
     </Main>
   );

@@ -164,6 +164,7 @@ export default function MagicAnchor(props) {
     href,
     children,
     disableMobileMagicAnchor = false,
+    disableDesktopMagicAnchor = false,
   } = props;
 
   const id = md5(href);
@@ -176,6 +177,10 @@ export default function MagicAnchor(props) {
   const ref = React.useRef(null);
 
   function onMouseEnter() {
+    if (disableDesktopMagicAnchor) {
+      return;
+    }
+
     setActiveMagicLink(id);
   }
 

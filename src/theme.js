@@ -11,6 +11,9 @@ const theme = {
     darkRed: '#B6180E',
     red: '#E63946',
     lightRed: '#F57584',
+    navy: '#061E40',
+    blue: '#3454C5',
+    lightBlue: '#9BB0FA',
   },
   standards: {
 

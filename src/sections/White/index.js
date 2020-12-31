@@ -18,7 +18,7 @@ export default function White() {
   const karenAntiMask = useInView({ threshold: 0.5 });
 
   return (
-    <WhiteBlocks.TopSection>
+    <WhiteBlocks.Section>
       <Phone
         karenLedeInView={karenLede.inView}
         karenMainInView={karenMain.inView}
@@ -58,6 +58,6 @@ export default function White() {
           CovidParty: CovidParty,
         }}
       />
-    </WhiteBlocks.TopSection>
+    </WhiteBlocks.Section>
   );
 }

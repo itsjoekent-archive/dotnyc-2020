@@ -18,6 +18,7 @@ require.extensions['.md'] = function (module, filename) {
 
 const red = require('./sections/Red/content.md');
 const white = require('./sections/White/content.md');
+const blue = require('./sections/Blue/content.md');
 
 async function sleep(duration = 1000) {
   return new Promise((resolve) => setTimeout(resolve, duration));
@@ -126,7 +127,7 @@ async function sleep(duration = 1000) {
       }
     }
 
-    await Promise.all([red, white].map((parse)));
+    await Promise.all([red, white, blue].map((parse)));
     await browser.close();
 
     console.log('done crawling!');

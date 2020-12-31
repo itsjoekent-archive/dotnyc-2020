@@ -26,6 +26,7 @@ export default function MarkdownRenderer(props) {
     overrides = {},
     options = {},
     disableMobileMagicAnchor = false,
+    disableDesktopMagicAnchor = false,
   } = props;
 
   const markdownOptions = {
@@ -38,7 +39,13 @@ export default function MarkdownRenderer(props) {
         component: Typography.Paragraph,
       },
       a: {
-        component: (anchorProps) => <MagicAnchor disableMobileMagicAnchor={disableMobileMagicAnchor} {...anchorProps} />,
+        component: (anchorProps) => (
+          <MagicAnchor
+            disableMobileMagicAnchor={disableMobileMagicAnchor}
+            disableDesktopMagicAnchor={disableDesktopMagicAnchor}
+            {...anchorProps}
+          />
+        ),
       },
       ...overrides,
     },

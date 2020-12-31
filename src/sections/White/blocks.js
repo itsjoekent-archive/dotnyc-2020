@@ -1,8 +1,8 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { MarkdownContainer } from '~/components/MarkdownRenderer';
 import * as Typography from '~/components/Typography';
 
-export const TopSection = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   width: 100vw;
