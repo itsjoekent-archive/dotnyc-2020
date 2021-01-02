@@ -86,6 +86,7 @@ const PreviewImage = styled.img`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.laptop}) {
     width: 100%;
+    max-height: none;
     object-position: center;
   }
 `;
