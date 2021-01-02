@@ -9,5 +9,8 @@ $ npm install
 $ npm start
 ```
 
+## Deployment
 
-- github action to build on push to master
+1. Compress everything within the `www` folder to `2020.zip`
+2. Upload to the `dotnyc` S3 bucket under the `micro/` directory
+3. Re-deploy joekent.nyc
