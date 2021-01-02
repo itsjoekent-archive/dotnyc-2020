@@ -1,3 +1,5 @@
+www/video filter=lfs diff=lfs merge=lfs -text
+www/previews filter=lfs diff=lfs merge=lfs -text
 www/video/* filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 www/previews/* filter=lfs diff=lfs merge=lfs -text
